@@ -1,0 +1,19 @@
+{
+	"name": "pi-chat",
+	"version": "0.0.1",
+	"description": "Twilio to Slack App",
+	"main": "app.js",
+	"scripts": {
+		"start": "node app.js"
+	},
+	"dependencies": {
+		"@slack/bolt": "*",
+		"barrel-js": "*",
+		"body-parser": "*",
+		"dotenv": "^8.1.0",
+		"firebase-admin": "*",
+		"node-emoji": "*",
+		"twilio": "*"
+	},
+	"license": "MIT"
+}
