@@ -26,6 +26,11 @@ const app = new App({
     ignoreSelf: false,
 })
 
+expressApp.get('/ping', (req, res) => {
+    console.log('<3')
+    return res.send('pong')
+})
+
 expressApp.post('/twilio', urlencodedParser, async (req, res) => {
     let sender = req.body.From
     let receiver = req.body.To
