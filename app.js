@@ -52,11 +52,11 @@ expressApp.post('/twilio', urlencodedParser, async (req, res) => {
 })
 
 expressApp.post('/api/trigger', jsonParser, async (req, res) => {
-    if (req.body.token !== process.env.BOT_AUTH_TOKEN) return res.send({
+    if (req.header('x-auth-token') !== process.env.API_TOKEN) return res.send({
         error: 'invalid_auth_token'
     })
 
-    let id = req.body.id
+    let id = req.body.trigger_id
     let doc = await firestore.retrieve('triggers', id)
     if (!doc.exists) return res.send({
         error: 'invalid_trigger_id'
